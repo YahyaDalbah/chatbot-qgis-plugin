@@ -33,9 +33,13 @@ Or for vision capabilities:
 ollama pull llava
 ```
 
-### 3. Install Python Dependencies
+### 3. Check Python Dependencies (Optional)
 
-#### For psycopg2 (PostgreSQL connector):
+The plugin requires `psycopg2` for PostgreSQL connections. **Most QGIS installations already include this**, so you likely don't need to install anything!
+
+**How to check:**
+1. Try connecting to your PostgreSQL database using the plugin
+2. If you see an error about "psycopg2 is not installed", then install it:
 
 **On Windows (OSGeo4W Shell):**
 ```bash
@@ -274,7 +278,9 @@ The plugin performs basic SQL validation:
 - Check available models: `ollama list`
 
 ### "psycopg2 is not installed"
+- **This error only appears if psycopg2 is actually missing** (rare with modern QGIS installations)
 - Install: `pip install psycopg2` (in OSGeo4W Shell on Windows)
+- Or: `pip3 install psycopg2-binary` (Linux/Mac)
 - Restart QGIS after installation
 
 ### "Connection Failed" to PostgreSQL
